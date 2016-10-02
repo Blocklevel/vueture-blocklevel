@@ -29,8 +29,19 @@
 // Require global styling here.
 //
 // Style guide: base
-@import "base/main";
+@import "base/layout";
 @import "base/fonts";
+@import "base/typography";
+
+
+// UI
+//
+// Require ui styling here.
+//
+// Style guide: ui
+@import "ui/buttons";
+@import "ui/formfields";
+@import "ui/icons";
 
 
 // Vendor
