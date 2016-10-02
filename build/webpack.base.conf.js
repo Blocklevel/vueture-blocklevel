@@ -82,6 +82,11 @@ module.exports = {
     configFile: './.eslintrc'
   },
   vue: {
-    loaders: utils.cssLoaders()
+    loaders: utils.cssLoaders(),
+    postcss: [
+      require('postcss-cssnext')({
+        browsers: ['last 3 versions']
+      })
+    ]
   }
 };
