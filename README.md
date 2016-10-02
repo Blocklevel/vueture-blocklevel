@@ -1,7 +1,7 @@
-# vue-2-boilerplate
+# Vueture (Blocklevel)
 > A boilerplate for building medium to large Vue 2.0 single page applications
 
-Vueture(Blocklevel) is forked from [Vueture](http://www.github.com/vueture) which is based on the [V]ue webpack template](http://vuejs-templates.github.io/webpack/).
+Vueture(Blocklevel) is forked from [Vueture](http://www.github.com/vueture) which is based on the [Vue webpack template](http://vuejs-templates.github.io/webpack/).
 
 Be sure to checkout the [Vuejs docs](http://vuejs.org/guide/).
 
@@ -40,7 +40,7 @@ For more information, visit the [docs](http://vuejs-templates.github.io/webpack/
 
 - `npm run styleguide`: Create styleguide based on [kss-node](https://github.com/kss-node/kss-node).
   - Creates a `styleguide` folder in the root of your project.
-  - Open `styleguide/index.html` to your projects styleguide.
+  - Open `styleguide/index.html` to see your project styleguide.
 
 ## Important Files ##
 So there are a couple of important files that needs to be addressed:
