@@ -6,7 +6,10 @@
  */
 import Vue from 'vue'
 import * as App from './app'
+import { initLocale } from './app/locale/locale'
 
 require('./bootstrap')
 
-new Vue(App).$mount('#app')
+initLocale().then(() => {
+  new Vue(App).$mount('#app')
+})
