@@ -1,4 +1,4 @@
-<div class="language-switcher-component">
+<div class="language-switcher-component" v-show="availableLanguages.length > 1">
   <ul class="language-list">
     <li class="language" v-for="(language, index) in availableLanguages">
       <button
