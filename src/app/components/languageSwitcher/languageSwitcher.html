@@ -1,0 +1,13 @@
+<div class="language-switcher-component" v-show="availableLanguages.length > 1">
+  <ul class="language-list">
+    <li class="language" v-for="(language, index) in availableLanguages">
+      <button
+        class="button"
+        @click.prevent="selectLanguage(language.code)"
+        :class="{ 'active': isLanguageActive(language.code)}">
+          <span v-if="displayName">{{ language.name }}</span>
+          <img v-if="!displayName" :src="getImagePath(language.flagIcon)" alt="" />
+      </button>
+    </li>
+  </ul>
+</div>
