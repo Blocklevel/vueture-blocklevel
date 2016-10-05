@@ -4,20 +4,20 @@
  *
  * The routes and redirects are defined in this file
  */
+import Home from './pages/home/home'
 
-/**
- * The routes
- *
- * @type {object} The routes
- */
 export default [
   {
-    path: '/home',
-    name: 'home.index',
-    component: require('./pages/home/index.vue')
+    name: 'home',
+    path: '/:lang?',
+    component: Home
+  },
+  {
+    path: '/',
+    redirect: '/:lang?/home'
   },
   {
     path: '/*',
-    redirect: '/home'
+    redirect: '/:lang?/'
   }
 ]
