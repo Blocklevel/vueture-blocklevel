@@ -65,6 +65,16 @@ const changeDefaultConfigs = async (config) => {
 }
 
 const setRoutes = () => {
+  const { languages } = store.state.locale
+
+  /**
+   * Ignore adding the language prefix to the url when there is
+   * only one language available.
+   */
+  if (!languages.length || languages.length < 2) {
+    return
+  }
+
   router.beforeEach((to, from, next) => {
     const { language, languages, defaultCode } = store.state.locale
     const { lang } = to.params
