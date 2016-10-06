@@ -26,7 +26,10 @@
   },
   "homepage": "https://github.com/vueture/vueture#readme",
   "dependencies": {
+    "breakpoint-sass": "^2.7.0",
+    "install": "^0.8.1",
     "normalize.css": "^4.2.0",
+    "npm": "^3.10.8",
     "vue": "^2.0.1",
     "vue-i18n": "^4.6.0",
     "vue-resource": "^0.9.3",
