@@ -14,12 +14,12 @@ export default {
     commit(CHANGE_LANGUAGE, { persistent, code })
   },
   [RETRIEVE_TRANSLATION]: async ({ commit, state }, payload) => {
-    const { defaultCode, localePath, persistent } = state.locale
+    const { defaultCode, localePath, persistent } = state
+    const { code, translateTo } = payload
 
     commit(RETRIEVE_TRANSLATION_PENDING)
 
     try {
-      const { code, translateTo } = payload
       const { data } = await Vue.http.get(`${localePath}/${translateTo}.json`)
 
       commit(RETRIEVE_TRANSLATION, data)

@@ -1,15 +1,8 @@
-/* ============
- * Main File
- * ============
- *
- * Will initialize the application
- */
 import Vue from 'vue'
-import * as App from './app'
-import { initLocale } from './app/locale/locale'
+import app from './app'
 
-require('./bootstrap')
+import { initLocale } from './app/locale'
 
 initLocale().then(() => {
-  new Vue(App).$mount('#app')
+  new Vue(app).$mount('#app')
 })

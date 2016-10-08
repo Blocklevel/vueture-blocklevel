@@ -1,8 +1,13 @@
-<main>
+<div>
+
+  <main>
+    <router-view></router-view>
+  </main>
+
   <language-switcher
     :languages="languages"
     :selectedLanguage="activeLanguageCode"
     :onChange="switchLanguage"
   />
-  <slot></slot>
-</main>
+
+</div>
