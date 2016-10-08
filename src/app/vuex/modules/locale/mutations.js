@@ -8,7 +8,7 @@ import {
   CHANGE_DEFAULT_LANGUAGE_CONFIG
 } from './events'
 
-const state = {
+export const state = {
   storageKey: 'app_language',
   defaultCode: 'en-GB',
   localePath: 'static/locale',
@@ -19,14 +19,12 @@ const state = {
       code: 'en-GB',
       urlPrefix: 'en',
       name: 'EN',
-      flagIcon: 'en-GB.png',
       translateTo: 'en-GB'
     },
     {
       code: 'nl-NL',
       urlPrefix: 'nl',
       name: 'NL',
-      flagIcon: 'nl-NL.png',
       translateTo: 'nl-NL'
     }
   ],
@@ -36,7 +34,7 @@ const state = {
   persistent: true
 }
 
-const mutations = {
+export const mutations = {
   [CHANGE_DEFAULT_LANGUAGE_CONFIG] (state, payload) {
     const {
       defaultCode,
@@ -88,5 +86,3 @@ const mutations = {
     state.persistent = false
   }
 }
-
-export default { state, mutations }

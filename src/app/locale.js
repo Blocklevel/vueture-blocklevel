@@ -10,15 +10,15 @@
  */
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
-import store from '../store'
+import store from './vuex/store'
 import _ from 'lodash'
-import { router } from '../../bootstrap'
+import { router } from '../bootstrap'
 import { getItem, setItem, removeItem } from '../helpers/localStorage'
 import {
   RETRIEVE_TRANSLATION,
   REMOVE_LANGUAGE_PERSISTENCY,
   CHANGE_DEFAULT_LANGUAGE_CONFIG
-} from '../store/modules/locale/events'
+} from './vuex/modules/locale/events'
 
 Vue.use(VueI18n)
 
@@ -76,7 +76,7 @@ const setRoutes = () => {
   }
 
   router.beforeEach((to, from, next) => {
-    const { language, languages, defaultCode } = store.state.locale
+    const { language, defaultCode } = store.state.locale
     const { lang } = to.params
     const detectedLanguage = _.find(languages, { urlPrefix: lang })
 

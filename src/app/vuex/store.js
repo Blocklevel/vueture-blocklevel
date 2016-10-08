@@ -12,26 +12,13 @@ import Vuex from 'vuex'
 import createLogger from 'vuex/dist/logger'
 
 // Store modules
-import locale from './modules/locale/module'
-import localeActions from './modules/locale/actions'
+import locale from './modules/locale'
 
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
-  /**
-   * Assign the actions to the store
-   */
-  actions: {
-    ...localeActions
-  },
-
-  /**
-   * Assign the getters to the store
-   */
-  getters: {},
-
   /**
    * Assign the modules to the store
    */
