@@ -75,6 +75,24 @@ const setRoutes = () => {
     return
   }
 
+  router.afterEach((to, from) => {
+    const { language } = store.state.locale
+
+    /**
+     * It is possible that pressing the history back button of the browser
+     * brings back also the old selected language in the url.
+     * Because the application reads that parameter, we need to check if that
+     * code is matching the current selected, so we can replace the old code
+     * with the new one in case of differences.
+     */
+    if (from.name && (to.params.lang !== from.params.lang)) {
+      router.replace({
+        name: to.name,
+        params: { lang: language.urlPrefix }
+      })
+    }
+  })
+
   router.beforeEach((to, from, next) => {
     const { language, defaultCode } = store.state.locale
     const { lang } = to.params
@@ -86,7 +104,7 @@ const setRoutes = () => {
      * Here we just redirect the browser to the current page
      * and inject the current url prefix.
      */
-    if (!detectedLanguage) {
+    if (!detectedLanguage && !from.name) {
       const { urlPrefix } = _.find(languages, { code: defaultCode })
       next({
         name: to.name,
@@ -103,9 +121,21 @@ const setRoutes = () => {
      * has been retrieved or there's a chance that the application
      * is not entirely affected.
      */
-    if (detectedLanguage.urlPrefix !== language.urlPrefix) {
+    if ((detectedLanguage && detectedLanguage.urlPrefix !== language.urlPrefix) && !from.name) {
       translateBy(detectedLanguage).then(() => next())
       return
+    }
+
+    /**
+     * Pretty boring to specify every time language in the router-link html tag,
+     * so this part will just check if there's not language and will inject that
+     * automatically.
+     */
+    if (!lang) {
+      router.replace({
+        name: to.name,
+        params: { lang: language.urlPrefix }
+      })
     }
 
     next()
